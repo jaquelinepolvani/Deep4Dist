@@ -1,0 +1,44 @@
+# pixi environments
+.pixi/*
+!.pixi/config.toml
+
+# Data (too large, not distributed via git — see README for download instructions)
+train/
+validation/
+test/
+*.zip
+metadata_w_dist_agents.csv
+tile_geometries.gpkg
+
+# IDE
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+
+# Personal config (contains machine-specific absolute path)
+config.py
+
+# Model checkpoints (large binaries, not tracked — see README for how to reproduce)
+checkpoints/*.pt
+checkpoints_run*/*.pt
+
+# Keep result artifacts though (plots, confusion matrices)
+!checkpoints/*.png
+!checkpoints_run*/*.png
+
+# Data (too large, not distributed via git — see README for download instructions)
+train/
+validation/
+test/
+*.zip
+metadata_w_dist_agents.csv
+tile_geometries.gpkg
+
+# IDE
+.idea/
+
+# Python
+__pycache__/
+*.pyc

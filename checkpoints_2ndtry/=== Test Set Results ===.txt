@@ -1,0 +1,17 @@
+=== Test Set Results ===
+Overall pixel accuracy: 0.8576
+
+Class                IoU       F1     Pixel count
+Background        0.8046   0.8917     151,924,868
+Bark Beetle       0.7161   0.8346      28,193,432
+Clear-cut         0.6746   0.8057      54,895,916
+Windthrow         0.3618   0.5313       2,226,104
+
+Mean IoU (macro): 0.6393
+Mean F1 (macro):  0.7658
+
+Confusion matrix (raw counts, rows=true, cols=predicted):
+[[128537434   7419155  14291106   1677173]
+ [  1366641  25704403    736221    386167]
+ [  6406384    244928  47345038    899566]
+ [    48380     36515    263916   1877293]]
