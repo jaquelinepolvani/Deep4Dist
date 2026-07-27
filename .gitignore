@@ -42,3 +42,6 @@ tile_geometries.gpkg
 # Python
 __pycache__/
 *.pyc
+
+# LibreOffice/OpenOffice lock files
+.~lock.*#
