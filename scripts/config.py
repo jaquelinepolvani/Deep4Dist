@@ -1,9 +1,7 @@
 from pathlib import Path
 
-# Einziger Ort, an dem der Pfad zu den Daten eingetragen wird.
-# Jede Person, die dieses Projekt nutzt, passt NUR diese eine Zeile an.
+# IMPORTANT: adjust this path to your own local Deep4Dist folder location
+# before running any scripts.
 BASE_PATH = Path(r"C:\Users\user\Documents\EAGLE\DeepLearning\Deep4dist")
 
-# Checkpoints relativ zum Projektordner selbst (nicht zur externen Festplatte),
-# damit das unabhängig vom Speicherort der Rohdaten funktioniert.
-CHECKPOINT_DIR = Path(__file__).parent.parent / "checkpoints_4thtry"
+CHECKPOINT_DIR = Path(__file__).parent.parent / "checkpoints"
