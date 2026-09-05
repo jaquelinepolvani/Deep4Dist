@@ -1,18 +1,13 @@
 """
-Same as the previous per-model visualization script, but instead of
-always picking the single "most dominant" test sample per category,
-this shows the top-5 candidates per category (by ground-truth pixel
-count) so you can pick whichever ones best illustrate a specific
-model's behavior (e.g. windthrow over-prediction).
+For each disturbance category, selects the top-5 test samples ranked
+by ground-truth pixel count, then plots the RGB input, ground truth,
+and the model's prediction for a chosen candidate.
 
-Selection is still based ONLY on ground truth (never on any model's
-prediction), so it stays consistent and comparable across different
-models/runs.
+Sample selection is based only on ground truth, never on the model's
+predictions, keeping results comparable across different models.
 
-Set RANK below to choose which candidate to use for each category
-(1 = the one used previously / most dominant, 2 = next runner-up, etc).
-Re-run with a different RANK if the current selection doesn't clearly
-show the pattern you're looking for.
+RANK selects which candidate to use per category (1 = highest
+ground-truth pixel count, 2 = second-highest, and so on).
 """
 
 import numpy as np
@@ -39,8 +34,8 @@ CLASS_COLORS = np.array([
 # images clearly show the pattern you want to illustrate.
 RANK = 2
 
-# Point this at whichever model's checkpoint you want to visualize
-# (e.g. checkpoints_2ndtry to specifically show run 2's behavior).
+# Path to the checkpoint directory of the model to visualize
+# (e.g. checkpoints_2ndtry for Run 2).
 MODEL_CHECKPOINT_DIR = CHECKPOINT_DIR.parent / "checkpoints_3rdtry"
 
 BEST_MODEL_PATH = MODEL_CHECKPOINT_DIR / "best_model.pt"
@@ -57,8 +52,6 @@ def find_candidate_samples(dataset, rank=1, top_k=5):
     "mixed" category, returns the index ranked `rank` (1 = highest)
     among the top_k candidates by ground-truth pixel count.
 
-    Returns a dict of {category_name: (index, all_top_k_indices)} so
-    you can see what the other candidate options were too.
     """
     class_pixel_counts = np.zeros((len(dataset), NUM_CLASSES), dtype=np.int64)
 
